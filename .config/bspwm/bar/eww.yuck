@@ -206,8 +206,8 @@
 ;; Bar Windows ;;
 (defwindow bar
 	:geometry (geometry :x "25px" 
-						:y "7%" 
-						:height "86%" 
+						:y "5%" 
+						:height "90%" 
 						:width "47px")
   :stacking "bt"
   :exclusive "true"

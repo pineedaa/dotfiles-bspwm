@@ -3,6 +3,7 @@
 
 bspc rule -r "*"
 bspc rule -a Brave-browser state=pseudo_tiled
+bspc rule -a Thunar state=pseudo_tiled
 bspc rule -a Alacritty state=pseudo_tiled
 
 sh ~/.config/bspwm/scripts/RandomWall

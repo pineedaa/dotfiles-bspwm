@@ -1,4 +1,4 @@
 #! /bin/sh
 
-wallimage=$(shuf -en1 ~/.config/bspwm/Wallpapers/*.png)
+wallimage=$(shuf -en1 ~/.config/bspwm/Wallpapers/*)
 feh --no-fehbg --bg-fill $wallimage

@@ -1,8 +1,9 @@
 #! /bin/sh
 # rules
 
-bspc rule -a Brave pseudo_tiled=on
-bspc rule -a Alacritty psudo_tiled=on
+bspc rule -r "*"
+bspc rule -a Brave-browser state=pseudo_tiled
+bspc rule -a Alacritty state=pseudo_tiled
 
 sh ~/.config/bspwm/scripts/RandomWall
 picom &

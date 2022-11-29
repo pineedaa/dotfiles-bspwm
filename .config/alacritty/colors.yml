@@ -1,31 +1,28 @@
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-
-## Colors configuration
+# Colors (Ayu Dark)
 colors:
   # Default colors
   primary:
-    background: "#1E2128"
-    foreground: "#ABB2BF"
+    background: '0x0f1419'
+    foreground: '0xe6e1cf'
 
   # Normal colors
   normal:
-    black: "#32363D"
-    red: "#E06B74"
-    green: "#98C379"
-    yellow: "#E5C07A"
-    blue: "#62AEEF"
-    magenta: "#C778DD"
-    cyan: "#55B6C2"
-    white: "#ABB2BF"
+    black:   '0x000000'
+    red:     '0xf34a4a'
+    green:   '0xbae67e'
+    yellow:  '0xffee99'
+    blue:    '0x73d0ff'
+    magenta: '0xd4bfff'
+    cyan:    '0x83CEC6'
+    white:   '0xf2f2f2'
 
   # Bright colors
   bright:
-    black: "#50545B"
-    red: "#EA757E"
-    green: "#A2CD83"
-    yellow: "#EFCA84"
-    blue: "#6CB8F9"
-    magenta: "#D282E7"
-    cyan: "#5FC0CC"
-    white: "#B5BCC9"
+    black:   '0x737d87'
+    red:     '0xff3333'
+    green:   '0xc2d94c'
+    yellow:  '0xe7c547'
+    blue:    '0x59c2ff'
+    magenta: '0xb77ee0'
+    cyan:    '0x5ccfe6'
+    white:   '0xffffff'

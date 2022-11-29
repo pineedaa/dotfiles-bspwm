@@ -8,7 +8,6 @@
 (defpoll volumen :interval "1s" "scripts/volume.sh --vol")
 (defpoll volume_value :interval "1s" "scripts/volume.sh --vol")
 
-(defpoll batt_icon :interval "20s" "scripts/battery icon")
 (defpoll batt_status :interval "20s" "scripts/battery percent")
 ;; Workspaces
 (deflisten workspace "./scripts/workspace")
@@ -48,9 +47,7 @@
 				:vexpand "false" 	
 				
 	(button		:style "background-image: url('images/icons/system/infowidgets.png');"
-				:class "trayicon" 									
-				:tooltip "Info Center"		 
-				:onclick "scripts/popup infocenter"))))
+				:class "trayicon"))))
 
 ;; Battery Widget ;;
 (defwidget battery []
@@ -66,11 +63,11 @@
 	(box		:orientation "v"					
 				:space-evenly "false"
 				
-	(label  	:class "bar-updates-text" 
+	(label  	:class "bar-battery" 
 				:text '${batt_status}%')))
 
 	(button
-        :style "background-image: url('images/icons/system/riceselector.png');"
+        :style "background-image: url('images/icons/system/batt.png');"
 				:class "trayicon"))))
 (defpoll UPDATES :interval "15m" `~/.config/bspwm/scripts/updates.sh`)
 (defvar pac false)

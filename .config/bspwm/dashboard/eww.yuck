@@ -29,13 +29,13 @@
           (box :class "welcometxt" :halign "center" :valign "center" "Welcome ${iam}")
           (box :class "pfpapps" :halign "center" :valign "center" :hexpand true :spacing 20
 			   (button :class "launcher-btn"
-                       :onclick "brave"
+                       :onclick "brave & disown"
                        "󰇧")
                (button :class "launcher-btn"
-                       :onclick "thunar ~"
+                       :onclick "thunar ~ & disown"
                        "")
                (button :class "launcher-btn"
-                       :onclick "alacritty"
+                       :onclick "alacritty & disown"
                        "")
                (button :class "launcher-btn"
                        :onclick "geany & disown"

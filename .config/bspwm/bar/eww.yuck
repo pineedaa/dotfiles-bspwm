@@ -26,7 +26,7 @@
 		 :space-evenly "false" 
 		 :spacing -15
   	(button :class "launcher_icon" 
-		   	:onclick "rofi -show drun &"
+		   	:onclick "rofi -show drun & disown"
         "󰣇")))
 
 ;; Workspaces Widgets ;;

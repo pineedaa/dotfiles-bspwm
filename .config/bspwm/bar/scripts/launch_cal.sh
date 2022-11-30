@@ -1,2 +1,2 @@
 #!/bin/bash
-eww -c ~/.config/bspwm/bar open calendar
+eww -c ~/.config/bspwm/bar open --toggle calendar

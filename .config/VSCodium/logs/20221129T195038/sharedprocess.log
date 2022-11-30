@@ -1,0 +1,5 @@
+2022-11-29 19:50:39.912 [info] Starting worker process with pid 106857 (type: fileWatcher, window: 1).
+2022-11-29 19:50:47.056 [info] Getting Manifest... ms-ceintl.vscode-language-pack-pt-br
+2022-11-29 19:50:47.304 [info] Installing extension: ms-ceintl.vscode-language-pack-pt-br
+2022-11-29 19:50:47.450 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-pt-br
+2022-11-29 19:50:47.503 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-pt-br

@@ -1,0 +1,2 @@
+2022-11-30 09:04:02.973 [info] [perf] Render performance baseline is 42ms
+2022-11-30 09:04:10.144 [error] Error while registering log channel file:///home/carlos/.config/VSCodium/logs/20221130T090357/userDataSync.log Timed out while waiting for file to be created

@@ -1,14 +1,18 @@
 ;; Modified   by https://github.com/Pineedaa
 
-;; put path to aesthetic bar config files here ;;
+;; put path to bar config files here ;;
 (defvar eww "/usr/bin/eww -c $HOME/.config/bspwm/bar")
+(defvar dashboard "eww -c $HOME/.config/bspwm/dashboard")
 
 ;; Volume vars
 (defpoll volume_icon :interval "1s" "scripts/volume.sh --icon")
 (defpoll volumen :interval "1s" "scripts/volume.sh --vol")
 (defpoll volume_value :interval "1s" "scripts/volume.sh --vol")
 
+;; Battery vars
 (defpoll batt_status :interval "20s" "scripts/battery percent")
+(defpoll batt_icon :interval "5s" "scripts/battery image")
+
 ;; Workspaces
 (deflisten workspace "./scripts/workspace")
 
@@ -35,6 +39,7 @@
 	(box		:orientation "v"  			
 	(button		:style "background-image: url('${WIFIICON}');"
 				:class "trayicon")))
+
 ;; Network
 (defpoll WIFIICON :interval "10s" `scripts/wifi --icon`)
 
@@ -42,23 +47,25 @@
 ;; control center ;;
 (defwidget notifycenter []
 	(eventbox	
-	(box		:orientation "v"					
+	(box	
+        :orientation "v"					
 				:space-evenly "false" 	 
 				:vexpand "false" 	
 				
 	(button		:style "background-image: url('images/icons/system/infowidgets.png');"
+        :onclick "${dashboard} open --toggle dashboard"
 				:class "trayicon"))))
 
 ;; Battery Widget ;;
 (defwidget battery []
-	(eventbox	:onhover "${eww} update pac=true"	
-				:onhoverlost "${eww} update pac=false" 
+	(eventbox	:onhover "${eww} update bat=true"	
+				:onhoverlost "${eww} update bat=false" 
 	(box		:orientation "v"					
 				:space-evenly "false" 	 
 				:vexpand "false" 	
 				
 	(revealer	:transition "slideup"				
-				:reveal pac			 
+				:reveal bat
 				:duration "550ms"
 	(box		:orientation "v"					
 				:space-evenly "false"
@@ -67,10 +74,11 @@
 				:text '${batt_status}%')))
 
 	(button
-        :style "background-image: url('images/icons/system/batt.png');"
+        :style "background-image: url('${batt_icon}');"
+        ;:style "background-image: url('images/icons/system/batt.png');"
 				:class "trayicon"))))
 (defpoll UPDATES :interval "15m" `~/.config/bspwm/scripts/updates.sh`)
-(defvar pac false)
+(defvar bat false)
 
 
 ;; Volume Widgets ;;
@@ -110,13 +118,14 @@
 ;; Clock Widgets ;;
 (defwidget time []
 	(box	:orientation "v" 
+      :onclick "${eww} open --toggle calendar"
 			:class "time" 
 			:valign "end"
 	(button
-      :onclick "${eww} open calendar"
+      :onclick "${eww} open --toggle calendar"
 			:class "time-hour" hour)
 	(button
-      :onclick "${eww} close calendar"
+      :onclick "${eww} open --toggle calendar"
 			:class "time-min"  min)))
 (defpoll hour	:interval "1s"	"date '+%H'")
 (defpoll min	:interval "1s"	"date '+%M'")

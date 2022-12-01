@@ -1,0 +1,2 @@
+2022-11-30 18:07:46.929 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/home/carlos/pacman_packages.txt","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
+2022-11-30 18:07:50.325 [info] [perf] Render performance baseline is 64ms

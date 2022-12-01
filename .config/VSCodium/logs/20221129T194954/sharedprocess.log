@@ -1,8 +1,0 @@
-2022-11-29 19:49:56.829 [info] Starting worker process with pid 104338 (type: fileWatcher, window: 1).
-2022-11-29 19:50:03.350 [info] Getting Manifest... ms-ceintl.vscode-language-pack-pt-br
-2022-11-29 19:50:03.854 [info] Installing extension: ms-ceintl.vscode-language-pack-pt-br
-2022-11-29 19:50:04.687 [info] Extracted extension to /home/carlos/.vscode-oss/extensions/.d8c9a9ab-c477-4768-acd2-5e7845e726c5: ms-ceintl.vscode-language-pack-pt-br
-2022-11-29 19:50:04.687 [info] Renamed to /home/carlos/.vscode-oss/extensions/ms-ceintl.vscode-language-pack-pt-br-1.73.0-universal
-2022-11-29 19:50:04.689 [info] Extracting completed. ms-ceintl.vscode-language-pack-pt-br
-2022-11-29 19:50:04.689 [info] Adding language packs from the extension ms-ceintl.vscode-language-pack-pt-br
-2022-11-29 19:50:04.743 [info] Extension installed successfully: ms-ceintl.vscode-language-pack-pt-br

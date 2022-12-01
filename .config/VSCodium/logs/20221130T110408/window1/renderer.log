@@ -1,0 +1,14 @@
+2022-11-30 11:04:10.610 [info] Initial editor state {"filesToOpenOrCreate":[{"fileUri":{"$mid":1,"path":"/home/carlos/packages.txt","scheme":"file"},"type":1,"exists":true,"options":{}}],"filesToDiff":[],"filesToMerge":[]}
+2022-11-30 11:04:11.689 [error] net::ERR_INTERNET_DISCONNECTED: Error: net::ERR_INTERNET_DISCONNECTED
+    at SimpleURLLoaderWrapper.<anonymous> (node:electron/js2c/browser_init:101:7169)
+    at SimpleURLLoaderWrapper.emit (node:events:526:28)
+2022-11-30 11:04:12.247 [error] RequestService#request (browser) - error https://open-vsx.org/vscode/gallery/extensionquery {"name":"Offline"}
+2022-11-30 11:04:13.639 [error] RequestService#request (browser) - error https://open-vsx.org/vscode/gallery/extensionquery {"name":"Offline"}
+2022-11-30 11:04:13.639 [error] Offline: Offline: Offline
+    at A (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:70:9475)
+    at I.request (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:638:24361)
+    at G.queryRawGalleryExtensions (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:816:227056)
+    at async G.queryGalleryExtensions (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:816:224353)
+    at async oe (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:816:223323)
+    at async G.query (vscode-file://vscode-app/opt/vscodium-bin/resources/app/out/vs/workbench/workbench.desktop.main.js:816:223564)
+2022-11-30 11:04:21.323 [error] Error while registering log channel file:///home/carlos/.config/VSCodium/logs/20221130T110408/userDataSync.log Timed out while waiting for file to be created

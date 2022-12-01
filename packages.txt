@@ -5,6 +5,7 @@ autoconf
 automake
 base
 bat
+betterlockscreen
 binutils
 bison
 brave-bin
@@ -38,10 +39,12 @@ gzip
 jq
 libtool
 lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
 linux
 linux-firmware
 lxappearance
 m4
+maim
 make
 mesa-demos
 neofetch
@@ -56,7 +59,7 @@ pacman
 pamixer
 papirus-icon-theme
 patch
-picom
+picom-arian8j2-git
 pkgconf
 pulseaudio
 pulseaudio-alsa
@@ -64,6 +67,7 @@ ristretto
 rofi
 scientifica-font
 sed
+spotify
 sudo
 sxhkd
 texinfo

@@ -3,10 +3,12 @@
 
 bspc rule -r "*"
 bspc rule -a Brave-browser state=pseudo_tiled
+bspc rule -a Spotify state=pseudo_tiled
 bspc rule -a Thunar state=pseudo_tiled
 bspc rule -a Alacritty state=pseudo_tiled
 
-sh ~/.config/bspwm/scripts/RandomWall
+# sh ~/.config/bspwm/scripts/RandomWall
+feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/lake_boat_top_view_130734_1920x1080.jpg'
 picom &
 eww daemon
 sh ~/.config/bspwm/bar/launch.sh
@@ -36,7 +38,7 @@ bspc config remove_disabled_monitors      true
 bspc config merge_overlapping_monitors    true
 
 bspc config border_width 2
-bspc config focused_border_color "#dddff4"
-bspc config normal_border_color "#0d0f18"
+bspc config focused_border_color "#6c7380"
+bspc config normal_border_color "#0d1017"
 
 bspc config pointer_motion_interval       16

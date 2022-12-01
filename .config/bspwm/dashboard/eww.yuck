@@ -1,6 +1,6 @@
 ;; **
-;; **       z0mbi3
-;; ** z0mbi3.zk@protonmail.com
+;; **       Pineedaa
+;; ** crevi2002@gmail.com
 ;; **
 
 ;; ** Variables ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -11,12 +11,12 @@
 
 (defpoll iam :interval "6h" `whoami`)
 
-(defpoll weathericon :interval "2h" "./Weather icon")
-(defpoll weathercity :interval "2h" "./Weather city")
-(defpoll weathertemp :interval "2h" "./Weather current_temp")
-(defpoll weatherfeel :interval "2h" "./Weather feels_like")
-(defpoll weatherdesc :interval "2h" "./Weather weather_desc")
-(defpoll weatherhex :interval "2h" "./Weather hex")
+(defpoll weathericon :interval "20m" "scripts/Weather icon")
+(defpoll weathercity :interval "20m" "scripts/Weather city")
+(defpoll weathertemp :interval "20m" "scripts/Weather current_temp")
+(defpoll weatherfeel :interval "20m" "scripts/Weather feels_like")
+(defpoll weatherdesc :interval "20m" "scripts/Weather weather_desc")
+(defpoll weatherhex :interval "20m" "scripts/Weather hex")
 
 ;; ** Widgets ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -113,7 +113,7 @@
 
   (defwindow dashboard
   :geometry (geometry :x "5%" 
-					  :y "0px"
+					  :y "-5%"
 					  :anchor "left bottom")
 					  :stacking "fg"
 (ipanel))

@@ -4,8 +4,8 @@ import:
 colors:
   # Default colors
   primary:
-    background: '0x0f1419'
-    foreground: '0xe6e1cf'
+    background: '#0D1017'
+    foreground: '#E6E1CF'
 
     # Cursor colors
     cursor:

@@ -202,7 +202,7 @@
 ;; Calendar Windows ;;
 (defwindow calendar
 	:geometry (geometry :x "90px"
-		:y "65%"
+		:y "1100px" ;; For a 1440p display
 		:width "270px"
 		:height "60px")
   (cal))

@@ -12,15 +12,15 @@
 (deflisten workspace "./scripts/workspace")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Widget Section's							 ;;	
+;;							Widget Section's							 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Launcher Widgets ;;
 (defwidget launcher []
-	(box :orientation "v" 
-		:space-evenly "false" 
+	(box :orientation "v"
+		:space-evenly "false"
 		:spacing -15
-  	(button :class "launcher_icon" 
+  	(button :class "launcher_icon"
 		  :onclick "rofi -show drun & disown"
       "󰣇")))
 
@@ -31,7 +31,7 @@
 
 ;; Wifi Widgets ;;
 (defwidget wifi []
-	(box :orientation "v"  			
+	(box :orientation "v"
 	(button :style "background-image: url('${WIFIICON}');"
 		:class "trayicon")))
 
@@ -45,45 +45,45 @@
 
 ;; Volume Widgets ;;
 (defwidget volum []
-	(eventbox :onhover "${eww} update volum=true" 		
+	(eventbox :onhover "${eww} update volum=true"
 		:onhoverlost "${eww} update volum=false"
-	(box :orientation "v" 	  
-		:space-evenly "false" 
+	(box :orientation "v"
+		:space-evenly "false"
 		:spacing "2"
 
-	(revealer :transition "slideup" 
-		:reveal volum         
+	(revealer :transition "slideup"
+		:reveal volum
 		:duration "550ms"
 
-	(scale :class "volbar" 	  
+	(scale :class "volbar"
 		:value volume_value
 		:onchange "scripts/volume.sh set {}"
-		:orientation "v"      
-		:flipped true 
-		:tooltip "Volume: ${volumen}" 
-		:max 101 
+		:orientation "v"
+		:flipped true
+		:tooltip "Volume: ${volumen}"
+		:max 101
 		:min 0))
 
 	(button :style "background-image: url('${volume_icon}');"
 		:class "trayicon"
-		:onclick "scripts/volume.sh --toggle-muted"))))			  
+		:onclick "scripts/volume.sh --toggle-muted"))))
 
 (defvar volum false)
 
 
-;; Control Panel Widgets ;;	
+;; Control Panel Widgets ;;
 (defwidget control []
-	(box :orientation "v" 
-		:space-evenly false  
+	(box :orientation "v"
+		:space-evenly false
 		:class "control"
   (wifi)
   (volum)))
 
 ;; Clock Widgets ;;
 (defwidget time []
-	(box :orientation "v" 
+	(box :orientation "v"
     :onclick "${eww} open --toggle calendar"
-		:class "time" 
+		:class "time"
 		:valign "end"
 	(button
     :onclick "${eww} open --toggle calendar"
@@ -99,12 +99,12 @@
 
 ;; Calendar Widgets ;;
 (defwidget cal []
-	(box :class "cal-box" 
+	(box :class "cal-box"
 		:orientation "v"
 	(box :class "cal-inner-box"
-	(calendar :class "cal" 
-		:day calendar_day 
-		:month calendar_month 
+	(calendar :class "cal"
+		:day calendar_day
+		:month calendar_month
 		:year calendar_year))))
 
 (defpoll calendar_day :interval "10h" "date '+%d'")
@@ -113,81 +113,81 @@
 
 ;; Powermenu Widgets ;;
 (defwidget power []
-	(eventbox	:onhover "${eww} update power=true"	
-		:onhoverlost "${eww} update power=false" 
-	(box :orientation "v"					
-		:space-evenly "false" 	 
-		:vexpand "false" 	
+	(eventbox	:onhover "${eww} update power=true"
+		:onhoverlost "${eww} update power=false"
+	(box :orientation "v"
+		:space-evenly "false"
+		:vexpand "false"
 		:class "powermenu"
-	(revealer	:transition "slideup"				
-		:reveal power			 
+	(revealer	:transition "slideup"
+		:reveal power
 		:duration "550ms"
-	(box :orientation "v"					
+	(box :orientation "v"
 		:space-evenly "false"
 
-	(button :class "button-bspres"  			
-	  :tooltip "BSPWM Restart" 
+	(button :class "button-bspres"
+	  :tooltip "BSPWM Restart"
 		:onclick "bspc wm -r" "󰑐")
 
-  (button	:class "button-reb"					
-	  :tooltip "Reboot"		 
+  (button	:class "button-reb"
+	  :tooltip "Reboot"
 		:onclick "reboot"	"󰜉")
 
-	(button	:class "button-quit" 				
-		:tooltip "Logout" 		 
+	(button	:class "button-quit"
+		:tooltip "Logout"
 		:onclick "killall bspwm" "󰍃")
 
-  (button	:class "button-lock" 				
-		:tooltip "Lock Screen"	 
+  (button	:class "button-lock"
+		:tooltip "Lock Screen"
 	  :onclick "betterlockscreen -l"	"󰌾")))
 
-	(button	:class "button-off"					
-		:tooltip "Shutdown"		 
+	(button	:class "button-off"
+		:tooltip "Shutdown"
 		:onclick "shutdown now"	"󰐥"))))
 
 (defvar power false)
 
 ;; Top Widgets ;;
 (defwidget top []
-	(box :orientation "v" 
-	  :space-evenly "false" 
-		:valign "start" 
+	(box :orientation "v"
+	  :space-evenly "false"
+		:valign "start"
   (launcher)
   (workspaces)))
 
 ;; Bottom Widgets ;;
 (defwidget bottom []
-	(box :orientation "v" 
-		:space-evenly false 
+	(box :orientation "v"
+		:space-evenly false
   (time)
   (power)))
 
 ;; End Widgets ;;
 (defwidget end []
-	(box :orientation "v" 
-		 :space-evenly "false" 
-		 :valign "end" 
+	(box :orientation "v"
+		 :space-evenly "false"
+		 :valign "end"
 		 :spacing 5
   (control)
   (bottom)))
 
 ;; Bar Widgets ;;
 (defwidget bar []
-	(box :class "eww_bar" 
-		 :orientation "v" 
-		 :vexpand "false" 
+	(box :class "eww_bar"
+		 :orientation "v"
+		 :vexpand "false"
 		 :hexpand "false"
 (top)
 (end)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;							Window Section's							 ;;	
+;;							Window Section's							 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Bar Windows ;;
 (defwindow bar
-	:geometry (geometry :x "25px" 
-	  :y "5%" 
-		:height "90%" 
+	:geometry (geometry :x "25px"
+	  :y "5%"
+		:height "90%"
 		:width "47px")
   :stacking "bt"
   :exclusive "true"
@@ -201,8 +201,8 @@
 
 ;; Calendar Windows ;;
 (defwindow calendar
-	:geometry (geometry :x "90px" 
-		:y "65%" 
-		:width "270px" 
+	:geometry (geometry :x "90px"
+		:y "65%"
+		:width "270px"
 		:height "60px")
   (cal))

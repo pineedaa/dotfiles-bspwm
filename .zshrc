@@ -69,7 +69,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Env
-export SUDO_ASKPASS=~/.config/rofi/scripts/askpass
+export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
 
 # Aliases
 alias ls='exa -l --git --icons --color'

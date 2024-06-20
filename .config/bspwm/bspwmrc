@@ -9,7 +9,7 @@ feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/lake_boat_top_vi
 picom &
 eww daemon
 sh ~/.config/bspwm/bar/launch.sh
-export SUDO_ASKPASS=~/.config/rofi/scripts/askpass
+export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 

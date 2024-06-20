@@ -154,5 +154,5 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
 	brightnessctl s 5%-
 
-Print
+super + shift + s
 	sh ~/.config/bspwm/scripts/Screenshooter

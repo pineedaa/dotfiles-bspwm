@@ -1,6 +1,5 @@
 ttf-ubuntu-mono-nerd
 ttf-jetbrains-mono-nerd
-lxappearance
 epapirus-icon-theme
 xcursor-comix
 xorg-xsetroot
@@ -8,8 +7,6 @@ rofi
 feh
 maim
 eza
-git
-xdg-user-dirs
 gtk
 gtk2
 gtk3

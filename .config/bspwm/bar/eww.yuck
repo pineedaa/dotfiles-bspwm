@@ -4,9 +4,9 @@
 (defvar eww "/usr/bin/eww -c $HOME/.config/bspwm/bar")
 
 ;; Volume vars
-(defpoll volume_icon :interval "1s" "scripts/volume.sh --icon")
-(defpoll volumen :interval "1s" "scripts/volume.sh --vol")
-(defpoll volume_value :interval "1s" "scripts/volume.sh --vol")
+(defpoll volume_icon :interval "1s" "scripts/volume --icon")
+(defpoll volumen :interval "1s" "scripts/volume --vol")
+(defpoll volume_value :interval "1s" "scripts/volume --vol")
 
 ;; Workspaces
 (deflisten workspace "./scripts/workspace")
@@ -57,7 +57,7 @@
 
 	(scale :class "volbar"
 		:value volume_value
-		:onchange "scripts/volume.sh set {}"
+		:onchange "scripts/volume set {}"
 		:orientation "v"
 		:flipped true
 		:tooltip "Volume: ${volumen}"
@@ -66,7 +66,7 @@
 
 	(button :style "background-image: url('${volume_icon}');"
 		:class "trayicon"
-		:onclick "scripts/volume.sh --toggle-muted"))))
+		:onclick "scripts/volume --toggle-muted"))))
 
 (defvar volum false)
 

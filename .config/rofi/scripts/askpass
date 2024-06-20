@@ -1,7 +1,8 @@
-#!/usr/bin/sh
-rofi -dmenu\
-  -password\
-  -i\
-  -no-fixed-num-lines\
-  -p "Password:"\
-  -theme ~/.config/rofi/themes/askpass.rasi
+#!/bin/sh
+
+rofi -dmenu \
+  -password \
+  -i \
+  -no-fixed-num-lines \
+  -p "Password:" \
+  -theme ~/.config/rofi/themes/askpass.rasi | tr -d '\n'

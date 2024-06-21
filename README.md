@@ -77,3 +77,9 @@ You can clone this dotfiles where you prefere and inside the folder you can simp
 You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) package with pacman:
 
 `$ pacman -S stow`
+
+# Sudo askpass
+
+There is also an script and an environment variable that is used to ask your sudo password without having to interact with the terminal. That is really useful when you want to open an app or execute an script with sudo permissions but from a .desktop file.
+
+To see how it works execute ´sudo -A <command to execute>´

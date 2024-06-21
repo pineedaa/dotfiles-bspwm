@@ -59,6 +59,13 @@ eww \n
 picom-arian8j2-git \n
 ```
 
+# Install
+
+You can clone this dotfiles where you prefere and inside the folder you can simply execute `stow .`.
+You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) package with pacman:
+
+`$ pacman -S stow`
+
 # Theme
 
 The theme I chose is [orchis-dark-compact](https://aur.archlinux.org/packages/orchis-theme) and it can be installed with [yay](https://aur.archlinux.org/packages/yay):
@@ -71,15 +78,8 @@ And the icon pack is [papirus]() that can be installed with pacman:
 
 The theme, icon pack and font can be applied with the [lxappearance](https://archlinux.org/packages/extra/x86_64/lxappearance/) package.
 
-# Install
-
-You can clone this dotfiles where you prefere and inside the folder you can simply execute `stow .`.
-You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) package with pacman:
-
-`$ pacman -S stow`
-
 # Sudo askpass
 
 There is also an script and an environment variable that is used to ask your sudo password without having to interact with the terminal. That is really useful when you want to open an app or execute an script with sudo permissions but from a .desktop file.
 
-To see how it works execute ´sudo -A <command to execute>´
+To see how it works execute ´sudo -A \<command to execute\>´

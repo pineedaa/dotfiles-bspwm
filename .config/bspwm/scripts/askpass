@@ -1,8 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 
-rofi -dmenu \
+password=$(rofi -dmenu \
   -password \
   -i \
   -no-fixed-num-lines \
   -p "Password:" \
-  -theme ~/.config/rofi/themes/askpass/askpass.rasi | tr -d '\n'
+  -theme ~/.config/rofi/themes/askpass/askpass.rasi)
+
+password=$(printf "%s" "$password" | tr -d '\n' | sed 's/[[:space:]]*$//')
+
+printf "%s" "$password"

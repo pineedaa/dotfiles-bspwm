@@ -1,0 +1,11 @@
+#!/bin/sh
+
+xsetroot -cursor_name left_ptr
+feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/lake_boat_top_view_130734_1920x1080.jpg'
+picom &
+eww daemon
+sh ~/.config/bspwm/bar/launch.sh
+export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
+export PATH=$HOME/.bin:$PATH
+
+pgrep -x sxhkd > /dev/null || sxhkd &

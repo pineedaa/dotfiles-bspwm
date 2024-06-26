@@ -1,17 +1,10 @@
 #! /bin/sh
+# autostart
+
+sh $HOME/.config/bspwm/scripts/autostart
+
 # rules
-
 bspc rule -r "*"
-
-# sh ~/.config/bspwm/scripts/RandomWall
-xsetroot -cursor_name left_ptr
-feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/lake_boat_top_view_130734_1920x1080.jpg'
-picom &
-eww daemon
-sh ~/.config/bspwm/bar/launch.sh
-export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
-
-pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6 7
 

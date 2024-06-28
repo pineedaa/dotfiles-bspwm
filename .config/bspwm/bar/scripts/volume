@@ -27,6 +27,16 @@ get_icon () {
   fi
 }
 
+get_color () {
+
+  local vol=$(get_percentage)
+  if [[ $vol == "0%" ]]; then
+    echo "#F7768E"
+  else
+    echo "#73DACA"
+  fi
+}
+
 get_vol () {
   local percent=$(get_percentage)
   echo $percent | tr -d '%'
@@ -42,6 +52,10 @@ fi
 
 if [[ $1 == "--vol" ]]; then
   get_vol
+fi
+
+if [[ $1 == "--color" ]]; then
+  get_color
 fi
 
 if [[ $1 == "--toggle-muted" ]]; then

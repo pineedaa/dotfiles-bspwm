@@ -155,7 +155,7 @@
 		:year calendar_year))))
 
 (defpoll calendar_day :interval "10h" "date '+%d'")
-(defpoll calendar_month :interval "10h" "scripts/calendar")
+(defpoll calendar_month :interval "10h" "date '+%m'")
 (defpoll calendar_year :interval "10h" "date '+%Y'")
 
 ;; Powermenu Widgets ;;
@@ -249,7 +249,7 @@
               :width "2%")
 	:monitor 0
 	:reserve (struts
-              :distance "35px"
+              :distance "2%"
 					    :side "left")
 	:wm-ignore false
 	:hexpand "false"

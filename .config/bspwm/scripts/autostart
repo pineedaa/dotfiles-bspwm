@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xsetroot -cursor_name left_ptr
-feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/lake_boat_top_view_130734_1920x1080.jpg'
+feh --no-fehbg --bg-fill '/home/carlos/.config/bspwm/Wallpapers/bg.png'
 picom &
 eww daemon
 sh ~/.config/bspwm/bar/launch.sh
@@ -10,4 +10,4 @@ export PATH=$HOME/.bin:$PATH
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-betterlockscreen -u lake_boat_top_view_130734_1920x1080.jpg & disown
+betterlockscreen -u '/home/carlos/.config/bspwm/Wallpapers/bg.png' & disown

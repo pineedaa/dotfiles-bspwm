@@ -7,8 +7,6 @@
 ;;							Widget Section's							 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defvar eww "/usr/bin/eww -c $HOME/.config/bspwm/bar")
-
 ;; Launcher Widgets ;;
 (defwidget launcher []
 	(box
@@ -57,8 +55,8 @@
 ;; Brightness Widgets ;;
 (defwidget bright []
   (eventbox
-    :onhover "${eww} update bright=true"
-  	:onhoverlost "${eww} update bright=false"
+    :onhover "${EWW_CMD} update bright=true"
+  	:onhoverlost "${EWW_CMD} update bright=false"
   	(box
       :orientation "v"
 			:space-evenly "false"
@@ -86,8 +84,8 @@
 ;; Volume Widgets ;;
 (defwidget volum []
 	(eventbox
-    :onhover "${eww} update volum=true"
-		:onhoverlost "${eww} update volum=false"
+    :onhover "${EWW_CMD} update volum=true"
+		:onhoverlost "${EWW_CMD} update volum=false"
 	(box
     :orientation "v"
 		:space-evenly "false"
@@ -132,10 +130,10 @@
 		:class "time"
 		:valign "end"
 	(button
-    :onclick "${eww} open --toggle calendar"
+    :onclick "${EWW_CMD} open --toggle calendar"
 		:class "time-hour" hour)
 	(button
-    :onclick "${eww} open --toggle calendar"
+    :onclick "${EWW_CMD} open --toggle calendar"
 		:class "time-min"  min)))
 
 (defpoll hour	:interval "1s" "date '+%H'")
@@ -161,8 +159,8 @@
 ;; Powermenu Widgets ;;
 (defwidget power []
 	(eventbox
-    :onhover "${eww} update power=true"
-		:onhoverlost "${eww} update power=false"
+    :onhover "${EWW_CMD} update power=true"
+		:onhoverlost "${EWW_CMD} update power=false"
     (box
       :orientation "v"
       :space-evenly "false"

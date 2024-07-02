@@ -1,8 +1,8 @@
 # Pineedaa's dotfiles
 ## Screenshots
 ![desktop](assets/empty-desktop.png)
-![desktop](assets/three-windows.png)
-![desktop](assets/pseudo-tiled.png)
+![desktop](assets/three-apps.png)
+![desktop](assets/pseudotiled.png)
 
 
 # Apps
@@ -57,6 +57,8 @@ pamixer \n
 eww \n
 # Compositor
 picom-arian8j2-git \n
+# Screenlocker
+betterlockscreen
 ```
 
 # Install
@@ -78,8 +80,21 @@ And the icon pack is [papirus]() that can be installed with pacman:
 
 The theme, icon pack and font can be applied with the [lxappearance](https://archlinux.org/packages/extra/x86_64/lxappearance/) package.
 
+# Bar
+
+The bar is made with [eww](https://github.com/elkowar/eww). It is a fork of [rxyhn](https://github.com/rxyhn/tokyo)'s dotfiles.
+![bar](assets/bar.png)
+
 # Sudo askpass
 
 There is also an script and an environment variable that is used to ask your sudo password without having to interact with the terminal. That is really useful when you want to open an app or execute an script with sudo permissions but from a .desktop file.
 
 To see how it works execute ´sudo -A \<command to execute\>´
+
+![askpass](assets/sudo-ls.png)
+
+This is useful when you want to create a cli app that requires admin privileges and you don't want it to be executed via terminal.
+For example you can create a .desktop file to execute and app/script that needs sudo permissions and asks you for the password with the rofi menu.
+
+
+![askpass](assets/sudo-ollama.png)

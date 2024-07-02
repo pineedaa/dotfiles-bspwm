@@ -98,3 +98,6 @@ For example you can create a .desktop file to execute and app/script that needs 
 
 
 ![askpass](assets/sudo-ollama.png)
+
+For the askpass to work you must set the SUDO_ASKPASS variable to a binary or script that returns the password in the stdout.
+In my case I export the variable in the autostart script of BSPWM and it is set to `$HOME/.config/bspwm/scripts/askpass`. When you have this variable set it will use automatically this path to the script to ask the password.

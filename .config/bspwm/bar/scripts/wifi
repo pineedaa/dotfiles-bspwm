@@ -1,0 +1,26 @@
+#!/bin/sh
+
+symbol() {
+  if (curl -I archlinux.org || curl -I google.com) &> /dev/null; then
+    echo " "
+  else
+    echo "󰤭"
+  fi
+
+}
+
+class() {
+  if (curl -I archlinux.org || curl -I google.com) &> /dev/null; then
+    echo "conn-active"
+  else
+    echo "conn-inactive"
+  fi
+}
+
+name() {
+  nmcli | grep "^wlp" | sed 's/\ connected\ to\ /Connected to /g' | cut -d ':' -f2
+}
+
+[ "$1" = "name" ] && name && exit
+[ "$1" = "class" ] && class && exit
+[ "$1" = "icon" ] && symbol && exit

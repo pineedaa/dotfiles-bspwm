@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+time=$(date '+%Y%m%d%H%M%S')
+dir="$(xdg-user-dir PICTURES)/screenshots"
+file="$time.png"
+
+if ! [ -d "$dir" ]; then
+  mkdir -p $dir
+fi
+
+function notify_view() {
+	if [[ -e "$dir/$file" ]]; then
+		notify-send -i "$dir/$file" -a shot -u low Screenshot "Screenshot taken!"
+	else
+		notify-send -i custom-trash-bin -a shot_icon -u low Screenshot "Screenshot deleted"
+	fi
+}
+
+function pumpumshot() {
+	cd "$dir" || return
+	local bytes
+    if [ "$(pgrep -x picom)" ]; then
+      bytes="$(maim -u -o -m 4 -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l | base64)"
+    else
+      bytes="$(maim -u -o -m 4 -f png -s -b 2 | base64)"
+    fi
+	if [ "$bytes" ]; then
+		echo "$bytes" | base64 --decode | tee "$file"
+		notify_view
+	else
+		notify-send -i custom-cancel -a shot_icon -u low Screenshot "Canceled screenshot"
+	fi
+}
+
+pumpumshot

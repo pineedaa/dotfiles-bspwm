@@ -3,6 +3,7 @@
 ![desktop](assets/empty-desktop.png)
 ![desktop](assets/three-apps.png)
 ![desktop](assets/pseudotiled.png)
+![desktop](assets/rofi.png)
 
 
 # Apps

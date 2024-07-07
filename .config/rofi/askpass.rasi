@@ -1,13 +1,16 @@
+@theme "/dev/null"
+
 * {
-    background-color:      #111116;
-    text-color:            #D8DEE9;
+    background-color:      #1e1e2e;
+    text-color:            #cdd6f4;
+    font: "JetBrainsMono Nerd Font 12";
 }
 
 #window {
     width:                 380px;
     y-offset:              -10%;
     padding:               40px;
-    border-color:          #333333;
+    border-color:          #89b4fa;
     border:                2px;
     border-radius:         5px;
 }

@@ -85,7 +85,7 @@ The bar is made with [eww](https://github.com/elkowar/eww). It is a fork of [rxy
 
 # Prompt
 
-The prompt is made with [oh-my-posh](https://ohmyposh.dev/). It displays a green heart ( <3 ) when the previous command exit code was 0 or a red broken heart ( </3 ) when the exit code was not 0.
+The prompt is made with [oh-my-posh](https://ohmyposh.dev/). It displays a green heart ( <3 ) when the previous command exit code was 0 or a red broken heart like mine ( </3 ) when the exit code was not 0.
 
 ![prompt](assets/prompt.png)
 

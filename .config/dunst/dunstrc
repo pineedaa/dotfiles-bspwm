@@ -49,14 +49,14 @@ mouse_right_click = close_current
 browser = "firefox"
 
 [urgency_low]
-background = "#0a1418"
+background = "#101010"
 foreground = "#eeeeee"
 
 [urgency_normal]
-background = "#0a1418"
+background = "#101010"
 foreground = "#eeeeee"
 
 [urgency_critical]
-background = "#0a1418"
+background = "#101010"
 foreground = "#eeeeee"
-frame_color = "#a16757"
+frame_color = "#ff5e5b"

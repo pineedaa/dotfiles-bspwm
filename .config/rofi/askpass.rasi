@@ -1,13 +1,13 @@
 * {
-    background-color:      #111116;
-    text-color:            #D8DEE9;
+    background-color:      #101010FF;
+    text-color:            #F0F0F0FF;
 }
 
 #window {
     width:                 380px;
     y-offset:              -10%;
     padding:               40px;
-    border-color:          #333333;
+    border-color:          #202020FF;
     border:                2px;
     border-radius:         5px;
 }

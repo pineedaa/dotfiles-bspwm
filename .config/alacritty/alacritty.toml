@@ -1,5 +1,8 @@
 import = ["~/.config/alacritty/colors.toml"]
 
+[env]
+TERM = "xterm-256color"
+
 [font]
 normal.family = "UbuntuMonoNerdFont"
 bold.family = "UbuntuMonoNerdFont"

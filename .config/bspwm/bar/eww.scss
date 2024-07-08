@@ -37,19 +37,19 @@ $font: "JetBrainsMono Nerd Font";
 
 .workspace-focused {
   font-size: 18px;
-  color: #8ea6c4;
+  color: $color5;
   margin: 0.35rem 0 0.35rem 0;
 }
 
 .workspace-occupied {
   font-size: 18px;
-  color: #6e8db4;
+  color: $white;
   margin: 0.35rem 0 0.35rem 0;
 }
 
 .workspace-empty {
   font-size: 18px;
-  color: #434c5e;
+  color: $white;
   margin: 0.35rem 0 0.35rem 0;
 }
 

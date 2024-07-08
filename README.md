@@ -66,18 +66,6 @@ You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) p
 
 `$ pacman -S stow`
 
-# Theme
-
-The theme I chose is [orchis-dark-compact](https://aur.archlinux.org/packages/orchis-theme) and it can be installed with [yay](https://aur.archlinux.org/packages/yay):
-
-`$ yay -S orchis-theme`
-
-And the icon pack is [papirus]() that can be installed with pacman:
-
-`$ pacman -S epapirus-icon-theme`
-
-The theme, icon pack and font can be applied with the [lxappearance](https://archlinux.org/packages/extra/x86_64/lxappearance/) package.
-
 # Bar
 
 The bar is made with [eww](https://github.com/elkowar/eww). It is a fork of [rxyhn](https://github.com/rxyhn/tokyo)'s dotfiles.

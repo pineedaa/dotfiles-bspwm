@@ -1,6 +1,7 @@
 [global]
-frame_color = "#4b6a95"
-separator_color= frame
+frame_width = 0
+frame_color = "#323232"
+separator_color = "#E5B34F"
 title = Dunst
 class = Dunst
 monitor = 0
@@ -49,14 +50,16 @@ mouse_right_click = close_current
 browser = "firefox"
 
 [urgency_low]
-background = "#101010"
-foreground = "#eeeeee"
+timeout = 3
+background = "#1F2531"
+foreground = "#FCFCFC"
 
 [urgency_normal]
-background = "#101010"
-foreground = "#eeeeee"
+timeout = 6
+background = "#1F2531"
+foreground = "#FCFCFC"
 
 [urgency_critical]
-background = "#101010"
-foreground = "#eeeeee"
-frame_color = "#ff5e5b"
+timeout = 0
+background = "#1F2531"
+foreground = "#FCFCFC"

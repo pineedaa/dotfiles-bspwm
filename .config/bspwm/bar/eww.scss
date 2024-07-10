@@ -72,9 +72,39 @@ $font: "JetBrainsMono Nerd Font";
 
 .bat {
   font-family: $font;
-  font-size: 1.2em;
-  padding-right: .5rem;
-  color: $color5;
+  font-size: 2em;
+  color: $white;
+}
+
+.bat-progress {
+  color: $color1;
+  background-color: $color3;
+  border-radius: 5px;
+}
+
+.great {
+  background-color: $color3;
+}
+
+.medium {
+  background-color: $color4;
+}
+
+.charge {
+  background-color: $color4;
+}
+
+.critical {
+  background-color: $color1;
+}
+
+.unknown {
+  background-color: $color1;
+}
+
+.bat-wrapper {
+  background-color: $color2;
+  color: $color4;
 }
 
 .wifi-icon {

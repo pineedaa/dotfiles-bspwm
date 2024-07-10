@@ -26,16 +26,28 @@
 
 ;; Battery Widgets ;;
 (defwidget bat []
-	(box
-    :orientation "v"
-		:space-evenly "false"
-	(label
-    :class "bat"
-		:halign "end"
-		:text battery
-		:tooltip "Battery: ${battery-cappacity}%")))
+  (overlay
+    :class "bat-wrapper"
+    :tooltip "Battery: ${battery-cappacity}%"
+    (progress
+      :class "bat-progress ${battery-class}"
+      :value "100"
+      :height "400px"
+      :orientation "v")
+    (box
+        :orientation "v"
+        :space-evenly "false"
+        :vexpand "true"
+        :hexpand "true"
+        (label
+          :class "bat"
+          :vexpand "true"
+          :hexpand "true"
+          :halign "center"
+          :text battery))))
 
 (defpoll battery :interval "1s"	"scripts/battery icon")
+(defpoll battery-class :interval "1s"	"scripts/battery class")
 (defpoll battery-cappacity :interval "1s"	"scripts/battery percent")
 
 ;; Wifi Widgets ;;
@@ -219,6 +231,7 @@
 		:space-evenly "false"
 		:valign "end"
 		:spacing 5
+  (bat)
   (control)
   (bottom)))
 
@@ -242,7 +255,7 @@
               :x "0.5%"
               :y "1%"
               :height "98%"
-              :width "2%")
+              :width "2.5%")
 	:monitor 0
 	:reserve (struts
               :distance "2.5%"

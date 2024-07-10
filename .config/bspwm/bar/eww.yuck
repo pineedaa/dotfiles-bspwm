@@ -33,8 +33,10 @@
     :orientation "v"
     (progress
       :class "bat-progress ${battery-class}"
-      :value battery-cappacity
-      :flipped false
+      :active "false"
+      :hexpand "true"
+      :value "${battery-cappacity}"
+      :flipped "true"
       :orientation "v")
     (box
         :orientation "v"

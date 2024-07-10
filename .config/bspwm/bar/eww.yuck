@@ -27,6 +27,7 @@
 ;; Battery Widgets ;;
 (defwidget bat []
   (overlay
+    :visible "${battery-visble}"
     :class "bat-wrapper"
     :tooltip "Battery: ${battery-cappacity}%"
     :orientation "v"
@@ -50,7 +51,7 @@
 (defpoll battery :interval "1s"	"scripts/battery icon")
 (defpoll battery-class :interval "1s"	"scripts/battery class")
 (defpoll battery-cappacity :interval "1s"	"scripts/battery percent")
-
+(defpoll battery-visble :interval "1h"	"scripts/battery is_visible")
 ;; Wifi Widgets ;;
 (defwidget wifi []
 	(box

@@ -1,6 +1,9 @@
 #!/bin/sh
 
-bat=/sys/class/power_supply/BAT1
+bat=/sys/class/power_supply/BAT0
+if [ ! -e "$bat" ]; then
+  bat=/sys/class/power_supply/BAT1
+fi
 per="$(cat "$bat/capacity")"
 
 icon() {
@@ -27,7 +30,7 @@ icon() {
   elif [ "$per" -gt "0" ]; then
     icon="󰂃"
   else
-    echo 󱉝 && exit
+    echo "󱟢" && exit
   fi
 
   echo "$icon"
@@ -55,6 +58,16 @@ class() {
   echo "$class"
 }
 
+is_visible() {
+  if [ -e "$bat" ]; then
+    printf "true"
+    return 0
+  fi
+
+  printf "false"
+}
+
 [ "$1" = "icon" ] && icon && exit
 [ "$1" = "percent" ] && percent && exit
 [ "$1" = "class" ] && class && exit
+[ "$1" = "is_visible" ] && is_visible && exit

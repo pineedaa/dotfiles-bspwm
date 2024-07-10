@@ -4,9 +4,10 @@ bat=/sys/class/power_supply/BAT0
 if [ ! -e "$bat" ]; then
   bat=/sys/class/power_supply/BAT1
 fi
-per="$(cat "$bat/capacity")"
+[ -e "$bat" ] && per="$(cat "$bat/capacity")"
 
 icon() {
+  [ ! -e "$bat" ] && exit
   [ $(cat "$bat/status") = Charging ] && echo "󱐋" && exit
 
   if [ "$per" -gt "90" ]; then
@@ -41,6 +42,7 @@ percent() {
 }
 
 class() {
+  [ ! -e "$bat" ] && exit
   [ $(cat "$bat/status") = Charging ] && echo "charging" && exit
 
   if [ "$per" -gt "60" ]; then

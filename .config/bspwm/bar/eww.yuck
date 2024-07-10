@@ -26,18 +26,32 @@
 
 ;; Battery Widgets ;;
 (defwidget bat []
-	(box
+  (overlay
+    :visible "${battery-visble}"
+    :class "bat-wrapper"
+    :tooltip "Battery: ${battery-cappacity}%"
     :orientation "v"
-		:space-evenly "false"
-	(label
-    :class "bat"
-		:halign "end"
-		:text battery
-		:tooltip "Battery: ${battery-cappacity}%")))
+    (progress
+      :class "bat-progress ${battery-class}"
+      :value battery-cappacity
+      :flipped false
+      :orientation "v")
+    (box
+        :orientation "v"
+        :space-evenly "false"
+        :vexpand "true"
+        :hexpand "true"
+        (label
+          :class "bat"
+          :vexpand "true"
+          :hexpand "true"
+          :halign "center"
+          :text battery))))
 
 (defpoll battery :interval "1s"	"scripts/battery icon")
+(defpoll battery-class :interval "1s"	"scripts/battery class")
 (defpoll battery-cappacity :interval "1s"	"scripts/battery percent")
-
+(defpoll battery-visble :interval "1h"	"scripts/battery is_visible")
 ;; Wifi Widgets ;;
 (defwidget wifi []
 	(box
@@ -116,7 +130,6 @@
     :orientation "v"
 		:space-evenly false
 		:class "control"
-  ; (bat)
   (wifi)
   ; (bright)
   (volum)))
@@ -219,6 +232,7 @@
 		:space-evenly "false"
 		:valign "end"
 		:spacing 5
+  (bat)
   (control)
   (bottom)))
 
@@ -242,7 +256,7 @@
               :x "0.5%"
               :y "1%"
               :height "98%"
-              :width "2%")
+              :width "2.5%")
 	:monitor 0
 	:reserve (struts
               :distance "2.5%"
@@ -257,7 +271,7 @@
 ;; Calendar Windows ;;
 (defwindow calendar
 	:geometry (geometry
-              :x "3%"
+              :x "3.5%"
               :y "-1%"
               :width "270px"
               :height "60px"

@@ -54,6 +54,15 @@
 (defpoll battery-class :interval "1s"	"scripts/battery class")
 (defpoll battery-cappacity :interval "1s"	"scripts/battery percent")
 (defpoll battery-visble :interval "1h"	"scripts/battery is_visible")
+
+;; Systray Widgets ;;
+(defwidget tray []
+  (systray
+    :class "tray"
+    :hexpand "true"
+    :vexpand "true"
+    :orientation "v"))
+
 ;; Wifi Widgets ;;
 (defwidget wifi []
 	(box
@@ -234,6 +243,7 @@
 		:space-evenly "false"
 		:valign "end"
 		:spacing 5
+  (tray)
   (bat)
   (control)
   (bottom)))

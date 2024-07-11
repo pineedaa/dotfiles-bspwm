@@ -70,6 +70,8 @@ $font: "JetBrainsMono Nerd Font";
   border-radius: 5px;
 }
 
+// Battery
+
 .bat {
   font-family: $font;
   font-size: 2em;
@@ -120,6 +122,13 @@ $font: "JetBrainsMono Nerd Font";
 .bat-wrapper {
   background-color: transparent;
   color: transparent;
+}
+
+// Systray
+
+.tray {
+  color: $color1;
+  background-color: transparent;
 }
 
 .wifi-icon {

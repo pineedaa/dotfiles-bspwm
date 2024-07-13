@@ -29,13 +29,13 @@
   (overlay
     :visible "${battery-visble}"
     :class "bat-wrapper"
-    :tooltip "Battery: ${battery-cappacity}%"
+    :tooltip "Battery: ${jq(EWW_BATTERY, 'to_entries[0].value.capacity')}%"
     :orientation "v"
     (progress
       :class "bat-progress ${battery-class}"
       :active "false"
       :hexpand "true"
-      :value "${battery-cappacity}"
+      :value "${jq(EWW_BATTERY, 'to_entries[0].value.capacity')}"
       :flipped "true"
       :orientation "v")
     (box
@@ -50,10 +50,20 @@
           :halign "center"
           :text battery))))
 
-(defpoll battery :interval "1s"	"scripts/battery icon")
-(defpoll battery-class :interval "1s"	"scripts/battery class")
-(defpoll battery-cappacity :interval "1s"	"scripts/battery percent")
-(defpoll battery-visble :interval "1h"	"scripts/battery is_visible")
+(defpoll battery-visble
+  :interval "24h"
+  :run-while "false"
+  "scripts/battery is_visible")
+
+(defpoll battery
+  :interval "1s"
+  :run-while battery-visble
+  "scripts/battery icon")
+
+(defpoll battery-class
+  :interval "1m"
+  :run-while battery-visble
+  "scripts/battery class")
 
 ;; Systray Widgets ;;
 (defwidget tray []

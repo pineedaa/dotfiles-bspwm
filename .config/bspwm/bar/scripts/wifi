@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Have to set this in order to work with every language
+LANG=en_US
+
 symbol() {
   if (curl -I archlinux.org || curl -I google.com) &> /dev/null; then
     echo " "
@@ -18,7 +21,7 @@ class() {
 }
 
 name() {
-  nmcli | grep "^wlp" | sed 's/\ connected\ to\ /Connected to /g' | cut -d ':' -f2
+  nmcli | grep -E "^wl|^enps|^eth" | cut -d ':' -f2 | sed 's/connected to //'
 }
 
 [ "$1" = "name" ] && name && exit

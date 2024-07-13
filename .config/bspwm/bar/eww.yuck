@@ -1,6 +1,6 @@
 ;; Created   by https://github.com/rxyhn
 ;; Designed  by https://github.com/rxyhn
-;; Maintaned by https://github.com/pineedaa
+;; Maintained by https://github.com/pineedaa
 ;; Modified  by https://github.com/pineedaa
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -118,12 +118,12 @@
 (defpoll brightness-visble
   :interval "24h"
   :run-while "false"
-  "sh scripts/brightness is_visible")
+  "scripts/brightness is_visible")
 
 (defpoll current-brightness
   :interval "1s"
   :run-while bright
-  "sh scripts/brightness get")
+  "scripts/brightness get")
 
 ;; Volume Widgets ;;
 (defwidget volum []

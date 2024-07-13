@@ -91,6 +91,7 @@
   (eventbox
     :onhover "${EWW_CMD} update bright=true"
   	:onhoverlost "${EWW_CMD} update bright=false"
+    :visible brightness-visble
   	(box
       :orientation "v"
 			:space-evenly "false"
@@ -106,14 +107,23 @@
 				  :onchange "brightnessctl set {}%"
 				  :orientation "v"
 				  :flipped true
-				  :max 101
-				  :min 0))
+				  :max 100
+				  :min 5))
   		(label
         :class "brightness-icon"
-			  :text "󰃟"))))
+			  :text ""))))
 
-(defpoll current-brightness :interval "1s" "brightnessctl -m -d amdgpu_bl0 | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
 (defvar bright false)
+
+(defpoll brightness-visble
+  :interval "24h"
+  :run-while "false"
+  "scripts/brightness is_visible")
+
+(defpoll current-brightness
+  :interval "1s"
+  :run-while bright
+  "sh scripts/brightness get")
 
 ;; Volume Widgets ;;
 (defwidget volum []
@@ -141,9 +151,16 @@
     :onclick "scripts/volume --toggle-muted"
     :class "volume-icon ${volume-class}" "󰕾"))))
 
-(defpoll current-volume :interval "1s" "scripts/volume --vol")
-(defpoll volume-class :interval "1s" "scripts/volume --class")
 (defvar volum false)
+
+(defpoll current-volume
+  :interval "1s"
+  :run-while volum
+  "scripts/volume --vol")
+
+(defpoll volume-class
+  :interval "1s"
+  "scripts/volume --class")
 
 ;; Control Panel Widgets ;;
 (defwidget control []
@@ -152,7 +169,7 @@
 		:space-evenly false
 		:class "control"
   (wifi)
-  ; (bright)
+  (bright)
   (volum)))
 
 ;; Clock Widgets ;;

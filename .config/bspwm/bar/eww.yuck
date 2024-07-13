@@ -118,7 +118,7 @@
 (defpoll brightness-visble
   :interval "24h"
   :run-while "false"
-  "scripts/brightness is_visible")
+  "sh scripts/brightness is_visible")
 
 (defpoll current-brightness
   :interval "1s"

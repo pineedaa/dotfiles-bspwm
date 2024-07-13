@@ -1,0 +1,18 @@
+#!/bin/sh
+
+brightness=$(echo "scale=2; $(brightnessctl g) / $(brightnessctl m) * 100" | bc)
+
+get_brightness() {
+  echo $brightness
+}
+
+is_visible() {
+  if [ "$(ls -A /sys/class/backlight/)" ]; then
+    printf "true"
+  else
+    printf "false"
+  fi
+}
+
+[ "$1" = "is_visible" ] && is_visible && exit
+[ "$1" = "get" ] && get_brightness && exit

@@ -104,15 +104,19 @@ $font: "JetBrainsMono Nerd Font";
 }
 
 .medium {
-  background-color: $color4;
+  background-color: $color6;
 }
 
-.charging {
-  background-color: $color3;
+.charge {
+  background-color: $color4;
 }
 
 .critical {
   background-color: $color1;
+}
+
+.charging {
+  background-color: $color3;
 }
 
 .unknown {

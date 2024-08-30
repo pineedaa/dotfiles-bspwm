@@ -293,12 +293,12 @@
 (defwindow bar
 	:geometry (geometry
               :x "0.5%"
-              :y "1%"
+              :y "10px"
               :height "98%"
-              :width "2.5%")
+              :width "51px")
 	:monitor 0
 	:reserve (struts
-              :distance "2.5%"
+              :distance "61px"
 					    :side "left")
   :windowtype "dock"
   :stacking "fg"

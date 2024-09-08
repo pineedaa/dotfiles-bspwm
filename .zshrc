@@ -57,7 +57,13 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+flowetch
+
 # Env
 export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
 
 eval "$(zoxide init zsh)"
+alias cd="z"
+alias cls="clear && flowetch"
+alias ls="exa -l --git --color=always"
+alias la="exa -la --git --color=always"

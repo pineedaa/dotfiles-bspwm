@@ -1,12 +1,12 @@
 #!/bin/sh
 
+export SUDO_ASKPASS=$HOME/.config/bspwm/scripts/askpass
+export PATH=$HOME/.bin:$PATH
 xsetroot -cursor_name left_ptr
 feh --no-fehbg --bg-fill $HOME/.config/bspwm/bg.png
 picom &
 eww daemon
 sh ~/.config/bspwm/bar/launch.sh
-export SUDO_ASKPASS=$HOME/.config/bspwm/scripts/askpass
-export PATH=$HOME/.bin:$PATH
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 

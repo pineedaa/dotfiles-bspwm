@@ -124,13 +124,16 @@ super + {Left,Down,Up,Right}
 
 ## Media keys
 XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5%
+  sh ~/.config/bspwm/scripts/media-control.sh volume_up
+	# pactl set-sink-volume 0 +5%
 
 XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5%
+  sh ~/.config/bspwm/scripts/media-control.sh volume_down
+	# pactl set-sink-volume 0 -5%
 
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+  sh ~/.config/bspwm/scripts/media-control.sh volume_mute
+	# pactl set-sink-mute 0 toggle
 
 XF86AudioPlay
 	playerctl play-pause

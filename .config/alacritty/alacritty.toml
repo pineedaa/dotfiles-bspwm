@@ -5,7 +5,7 @@ normal.family = "UbuntuMonoNerdFont"
 bold.family = "UbuntuMonoNerdFont"
 italic.family = "UbuntuMonoNerdFont"
 bold_italic.family = "UbuntuMonoNerdFont"
-size = 13.0
+size = 11.0
 
 [window]
 padding = {x = 10, y = 10}

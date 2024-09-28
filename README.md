@@ -66,7 +66,13 @@ You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) p
 
 `$ pacman -S stow`
 
-# Bar
+There is also an install script to automate the process
+
+> [!CAUTION]
+> The script is untested. Please, let me know if you encounter any errors.
+
+> [!WARNING]  
+> This script only works for Arch Linux.
 
 The bar is made with [eww](https://github.com/elkowar/eww). It is a fork of [rxyhn](https://github.com/rxyhn/tokyo)'s dotfiles.
 ![bar](assets/bar.png)

@@ -74,10 +74,10 @@ install_pkgs() {
 
 download_aur_pkgs() {
     local dir="$1"
+    mkdir -p "$dir"
     shift
 
     local packages=("$@") 
-    mkdir -p "$dir"
 
     # Iterate over each package in the package list
     for pkg in "${packages[@]}"; do
@@ -86,7 +86,7 @@ download_aur_pkgs() {
         if git clone "https://aur.archlinux.org/${pkg}.git" "$dir/$pkg"; then
             echo "Successfully cloned $pkg."
         else
-            echo "Failed to clone $pkg." >$2
+            echo "\e[31mFailed to clone $pkg.\e[0m" >&2
             continue
         fi
     done
@@ -95,12 +95,12 @@ download_aur_pkgs() {
 install_aur_pkgs() {
     local pkgs_dir="$1"
     if [ ! -d "$pkgs_dir" ]; then
-        echo "The specified path does not exist!" >&2
+        echo "\e[31mThe specified path does not exist!\e[0m" >&2
         exit 1
     fi
 
     if [ -z "$(ls -A "$pkgs_dir")" ]; then
-        echo "No packages found in $pkgs_dir!" >&2
+        echo "\e[31mNo packages found in $pkgs_dir!\e[0m" >&2
         exit 1
     fi
 

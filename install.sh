@@ -6,9 +6,11 @@ export LANGUAGE=C.UTF-8
 
 set -e
 
-AUR_PACKAGES=("orchis-theme" "picom-arian8j2-git" "betterlockscreen")
+AUR_PACKAGES=("orchis-theme" "picom-arian8j2-git")
 PACKAGES=(
   "alacritty"
+  "xorg-xrandr"
+  "xorg-xdpyinfo"
   "brightnessctl"
   "dunst"
   "cargo"
@@ -125,7 +127,12 @@ install_eww() {
     local install_dir=$( [ -n "$1" ] && echo "$1" || echo "/usr/local/bin" )
     mkdir -p "$install_dir" # Create the binary installation directory
 
+
     local eww_dir="$(xdg-user-dir DOWNLOAD)/eww"
+    if [ -e "$eww_dir" ]; then
+        rm -rf "$eww_dir"
+    fi
+
     git clone https://github.com/elkowar/eww "$eww_dir"
     cd $eww_dir && \
     cargo build --release --no-default-features --features x11 && \
@@ -155,6 +162,12 @@ install_dotfiles() {
 AUR_HELPER=$(get_aur_helper)
 
 if [ -n "$AUR_HELPER" ]; then
+    install_with_helper "$AUR_HELPER" "${PACKAGES[@]}"
+else
+    install_pkgs "${PACKAGES[@]}"
+fi
+
+if [ -n "$AUR_HELPER" ]; then
     # If there is an AUR helper, install the packages with it
     install_with_helper "$AUR_HELPER" "${AUR_PACKAGES[@]}"
 else
@@ -162,16 +175,14 @@ else
     echo "No AUR helper found, proceeding with manual cloning and building..."
 
     REPOS_DIR="$(xdg-user-dir DOWNLOAD)/pkgs"
+    if [ -d "$REPOS_DIR"]; then
+        rm -rf "$REPOS_DIR"
+    fi
+
     download_aur_pkgs "$REPOS_DIR" "${AUR_PACKAGES[@]}"
     install_aur_pkgs "$REPOS_DIR"
 fi
 
-if [ -n "$AUR_HELPER" ]; then
-    install_with_helper "$AUR_HELPER" "${PACKAGES[@]}"
-else
-    install_pkgs "${PACKAGES[@]}"
-fi
-
-install_dotfiles "$DOTFILES_REPO" "$DOTFILES_INSTALL_DIR"
 install_eww "$EWW_INSTALL_DIR"
 install_oh_my_posh "$OH_MY_POSH_INSTALL_DIR"
+install_dotfiles "$DOTFILES_REPO" "$DOTFILES_INSTALL_DIR"

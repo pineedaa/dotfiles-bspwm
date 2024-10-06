@@ -9,7 +9,7 @@
   all: unset;
 }
 
-@import 'colors.scss'
+@import 'colors.scss';
 
 $font: "JetBrainsMono Nerd Font";
 
@@ -35,13 +35,13 @@ $font: "JetBrainsMono Nerd Font";
   border-radius: 5px;
 }
 
-.workspace-focused {
+.workspace-occupied {
   font-size: 18px;
   color: $color6;
   margin: 0.35rem 0 0.35rem 0;
 }
 
-.workspace-occupied {
+.workspace-focused  {
   font-size: 18px;
   color: $white;
   margin: 0.35rem 0 0.35rem 0;

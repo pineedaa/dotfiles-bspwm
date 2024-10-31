@@ -9,6 +9,7 @@ set -e
 AUR_PACKAGES=("orchis-theme" "picom-arian8j2-git")
 PACKAGES=(
   "alacritty"
+  "unzip"
   "xorg-xrandr"
   "xorg-xdpyinfo"
   "brightnessctl"

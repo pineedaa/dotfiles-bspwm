@@ -1,8 +1,11 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[transient_prompt]
+  template = '{{ if gt .Code 0 }}</3{{ else }}<3{{ end }} '
+  background = 'transparent'
+  foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}', '{{ if eq .Code 0 }}green{{ end }}']
 
 [[blocks]]
   type = 'prompt'
@@ -10,53 +13,48 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    foreground = 'blue'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'blue'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
+    template = '{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} '
+    foreground = 'magenta'
+    background = 'transparent'
     type = 'git'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'magenta'
-    template = '{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} '
 
     [blocks.segments.properties]
       branch_icon = ''
+      cache_duration = 'none'
       fetch_status = true
 
   [[blocks.segments]]
+    template = '{{ if gt .Code 0 }}</3{{ else }}<3{{ end }}'
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    background = 'transparent'
-    foreground_templates = [
-      "{{ if gt .Code 0 }}red{{ end }}",
-      "{{ if eq .Code 0 }}green{{ end }}"
-    ]
-    template = '{{ if gt .Code 0 }}</3{{ else }}<3{{ end }}'
+    foreground_templates = ['{{ if gt .Code 0 }}red{{ end }}', '{{ if eq .Code 0 }}green{{ end }}']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[blocks]]
   type = 'rprompt'
   overflow = 'hidden'
 
   [[blocks.segments]]
+    foreground = 'yellow'
+    background = 'transparent'
     type = 'executiontime'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'yellow'
 
     [blocks.segments.properties]
-      threshold = 5000
+      cache_duration = 'none'
       style = 'round'
-
-[transient_prompt]
-  background = 'transparent'
-  foreground_templates = [
-    "{{ if gt .Code 0 }}red{{ end }}",
-    "{{ if eq .Code 0 }}green{{ end }}"
-  ]
-  template = '{{ if gt .Code 0 }}</3{{ else }}<3{{ end }} '
+      threshold = 5000

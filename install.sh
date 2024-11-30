@@ -65,7 +65,7 @@ install_with_helper() {
 
     # Install all packages with the AUR helper
     echo "Installing packages with $helper..."
-    sudo "$helper" -S --noconfirm "$@"
+    "$helper" -S --noconfirm "$@"
 }
 
 install_pkgs() {

@@ -86,14 +86,15 @@
 (defpoll wifi-name :interval "1s" "scripts/wifi name")
 (defpoll wifi-class :interval "1s" "scripts/wifi class")
 
-(defwidget notifications []
+(defwidget notification-icon []
 	(box
     :orientation "v"
-		:tooltip "${unread-notifications} notificaciones sin leer"
+		;:tooltip "${unread-notifications} notificaciones sin leer"
+    :tooltip notifications_box
 	(button
 		:class "notifications-icon ${notifications-status}"
     :onclick "scripts/notifications --toggle-notifications"
-    :onrightclick "scripts/notifications --pop"
+    :onrightclick "${EWW_CMD} open --toggle notification-container"
     :onmiddleclick "scripts/notifications --history"
     notifications-icon)))
 
@@ -101,6 +102,15 @@
 (defpoll unread-notifications :interval "1s" "scripts/notifications unread")
 (defpoll notifications-icon :interval "1s" "scripts/notifications icon")
 
+(defpoll notifications_box :interval "5s" "scripts/notifications eww")
+;(deflisten notifications_box "scripts/notification_box")
+(defwidget notifications []
+  (box
+    :orientation "v"
+    (scroll
+      :vscroll "true"
+      :hscroll "false"
+      (literal :content notifications_box))))
 
 ;; Brightness Widgets ;;
 (defwidget bright []
@@ -184,7 +194,7 @@
     :orientation "v"
 		:space-evenly false
 		:class "control"
-  (notifications)
+  (notification-icon)
   (wifi)
   (bright)
   (volum)))
@@ -333,3 +343,12 @@
               :height "60px"
               :anchor "bottom left")
   (cal))
+
+(defwindow notification-container
+	:geometry (geometry
+              :x "3.5%"
+              :y "-1.5%"
+              :width "450px"
+              :height "600px"
+              :anchor "bottom left")
+  (notifications))

@@ -287,3 +287,39 @@ calendar:indeterminate {
 .button-lock {
   color: $color5;
 }
+
+// Notifications
+.notification-container {
+  background-color: $background;
+  padding: .3rem;
+  border-radius: 10px;
+}
+
+.notification-box {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: $black;
+}
+
+.delete-notifications {
+  border-radius: 10px;
+  background-color: $color5;
+}
+
+.delete-notifications:hover {
+  background-color: $color1;
+}
+
+.appname {
+  font-weight: bold;
+  font-size: 18px;
+  color: $color3;
+}
+
+.summary {
+
+}
+
+.body {
+
+}

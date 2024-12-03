@@ -57,13 +57,13 @@ $font: "JetBrainsMono Nerd Font";
 .notifications-on {
   color: $color5;
   font-family: $font;
-  padding: 0 0 .3rem .5rem;
+  padding: 0 .3rem .3rem 0;
 }
 
 .notifications-off {
   color: $color1;
   font-family: $font;
-  padding: 0 0 .3rem .5rem;
+  padding: 0 .3rem .3rem 0;
 }
 
 // Launcher

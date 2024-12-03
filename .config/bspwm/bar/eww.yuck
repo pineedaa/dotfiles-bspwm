@@ -86,15 +86,15 @@
 (defpoll wifi-name :interval "1s" "scripts/wifi name")
 (defpoll wifi-class :interval "1s" "scripts/wifi class")
 
+;; Notifications ;;
 (defwidget notification-icon []
 	(box
     :orientation "v"
 		:tooltip "${unread-notifications} notificaciones sin leer"
 	(button
 		:class "notifications-icon ${notifications-status}"
-    :onclick "scripts/notifications --toggle-notifications"
-    :onrightclick "${EWW_CMD} open --toggle notification-container"
-    :onmiddleclick "scripts/notifications --history"
+    :onrightclick "scripts/notifications --toggle-notifications"
+    :onclick "${EWW_CMD} open --toggle notification-container"
     notifications-icon)))
 
 (defpoll notifications-status :interval "1s" "scripts/notifications status")

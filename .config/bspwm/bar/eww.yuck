@@ -93,6 +93,8 @@
 	(button
 		:class "notifications-icon ${notifications-status}"
     :onclick "scripts/notifications --toggle-notifications"
+    :onrightclick "scripts/notifications --pop"
+    :onmiddleclick "scripts/notifications --history"
     notifications-icon)))
 
 (defpoll notifications-status :interval "1s" "scripts/notifications status")

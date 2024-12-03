@@ -89,8 +89,7 @@
 (defwidget notification-icon []
 	(box
     :orientation "v"
-		;:tooltip "${unread-notifications} notificaciones sin leer"
-    :tooltip notifications_box
+		:tooltip "${unread-notifications} notificaciones sin leer"
 	(button
 		:class "notifications-icon ${notifications-status}"
     :onclick "scripts/notifications --toggle-notifications"
@@ -102,15 +101,16 @@
 (defpoll unread-notifications :interval "1s" "scripts/notifications unread")
 (defpoll notifications-icon :interval "1s" "scripts/notifications icon")
 
-(defpoll notifications_box :interval "5s" "scripts/notifications eww")
-;(deflisten notifications_box "scripts/notification_box")
 (defwidget notifications []
   (box
     :orientation "v"
     (scroll
       :vscroll "true"
       :hscroll "false"
-      (literal :content notifications_box))))
+      (literal :content notifications_box)
+    )))
+
+(deflisten notifications_box :initial "" "scripts/notification_box")
 
 ;; Brightness Widgets ;;
 (defwidget bright []

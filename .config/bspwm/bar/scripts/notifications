@@ -64,36 +64,9 @@ history_to_json() {
 
 history_eww_content() {
   notifications=$(dunstctl history | jq -r '.data[0][] |
-    "(box 
-      :orientation \"v\" 
-      :class \"notification-box\" 
-      :onrightclick \"dunstctl history-rm \(.id.data)\"
-      (label 
-        :class \"appname\" 
-        :halign \"start\" 
-        :wrap \"true\"
-        :show-truncated \"true\"
-        :text \"\(.appname.data)\") 
-      (label 
-        :class \"summary\" 
-        :halign \"start\" 
-        :wrap \"true\"
-        :show-truncated \"true\"
-        :text \"\(.summary.data)\") 
-      (label 
-        :class \"body\" 
-        :halign \"start\" 
-        :wrap \"true\"
-        :show-truncated \"true\"
-        :text \"\(.body.data)\"))"')
+    "(box :orientation \"v\" :class \"notification-box\" :space-evenly \"false\" :onrightclick \"dunstctl history-rm \(.id.data)\" (label :class \"appname\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.appname.data)\") (label :class \"summary\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.summary.data)\") (label :class \"body\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.body.data)\"))"')
 
-  echo "(box 
-          :orientation \"v\" 
-          :spacing 10
-          :space-evenly \"true\"
-          :class \"notification-container\" 
-          (button :onclick \"dunstctl history-clear\" :vexpand \"false\" :class \"delete-notifications\" (label :text \"borrar todo\"))
-          $notifications)"
+  printf "(box :orientation \"v\" :spacing 10 :space-evenly \"false\" :class \"notification-container\" (button :onclick \"dunstctl history-clear\" :vexpand \"false\" :class \"delete-notifications\" (label :text \"borrar todo\")) $notifications)"
 }
 
 

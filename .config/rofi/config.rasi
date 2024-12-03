@@ -8,7 +8,7 @@ configuration {
 	sidebar-mode: 			false;
 }
 
-@theme "/dev/null"
+//@theme "/dev/null"
 
 /*****----- Configuration -----*****/
 configuration {
@@ -157,3 +157,4 @@ element selected.normal {
     background-color:            var(selected);
     text-color:                  var(background);
 }
+@theme "/home/carliitooss/.local/share/rofi/themes/rounded-gray-dark.rasi"

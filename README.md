@@ -4,6 +4,7 @@
 ![desktop](assets/three-apps.png)
 ![desktop](assets/pseudotiled.png)
 ![desktop](assets/rofi.png)
+![desktop](assets/notification-center.png)
 
 
 # Apps

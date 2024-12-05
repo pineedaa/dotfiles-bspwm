@@ -67,6 +67,8 @@ You can install the [stow](https://www.gnu.org/software/stow/manual/stow.html) p
 
 `$ pacman -S stow`
 
+Also you can install it with the `install.sh` script.
+
 # Theme
 
 The theme I chose is [orchis-dark-compact](https://aur.archlinux.org/packages/orchis-theme) and it can be installed with [yay](https://aur.archlinux.org/packages/yay):

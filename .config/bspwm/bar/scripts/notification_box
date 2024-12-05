@@ -15,11 +15,12 @@ history_eww_content() {
   fi
 
   notifications=$(dunstctl history | jq -r '.data[0][] |
-    "(box 
-      :orientation \"v\" 
-      :class \"notification-box\" 
-      :space-evenly \"false\" 
-      :onrightclick \"dunstctl history-rm \(.id.data)\" 
+    "(button 
+      :onrightclick \"dunstctl history-rm \(.id.data) ; scripts/notifications update\" 
+      (box 
+        :orientation \"v\" 
+        :class \"notification-box\" 
+        :space-evenly \"false\" 
         (label 
           :class \"appname\" 
           :halign \"start\" 
@@ -37,7 +38,7 @@ history_eww_content() {
           :halign \"start\" 
           :truncate \"true\" 
           :show-truncated \"true\" 
-          :text \"\(.body.data)\"))"')
+          :text \"\(.body.data)\")))"')
 
   box=$(echo "(box 
     :orientation \"v\"
@@ -45,7 +46,7 @@ history_eww_content() {
     :space-evenly \"false\" 
     :class \"notification-container\"
       (button 
-      :onclick \"dunstctl history-clear && dunstify -a 'System' -t 1 'Notificaciones' 'Se han borrado todas las notificaciones'\" 
+      :onclick \"dunstctl history-clear ; scripts/notifications update\" 
       :vexpand \"false\" 
       :class \"delete-notifications\" 
         (box
@@ -59,5 +60,10 @@ history_eww_content() {
 
 history_eww_content
 dbus-monitor "interface='org.freedesktop.Notifications'" | while read -r _; do
-  history_eww_content
+  if (dunstctl is-paused | grep false) &> /dev/null; then
+    history_eww_content
+  else
+    dunstctl close-all ; history_eww_content
+  fi
+
 done

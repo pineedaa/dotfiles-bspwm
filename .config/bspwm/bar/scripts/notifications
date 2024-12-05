@@ -11,6 +11,11 @@ status() {
   fi
 }
 
+update() {
+  dbus-send --session --dest=org.freedesktop.Notifications --type=method_call \
+--print-reply /org/freedesktop/Notifications org.freedesktop.Notifications.GetCapabilities
+}
+
 unread() {
   dunstctl count waiting
 }
@@ -28,54 +33,8 @@ icon() {
   fi
 }
 
-show_last() {
-  dunstctl history-pop
-}
-
-show_history() {
-  dunstctl history
-}
-
-history_to_csv() {
-  dunstctl history | jq -r '.data[0][] | "\(.appname.data);\(.summary.data);\(.body.data);\(.timestamp.data)"'
-}
-
-history_to_json_bak() {
-  dunstctl history | jq -r \
-'{
-  notifications: [.data[0][] | {
-    appname: .appname.data,
-    summary: .summary.data,
-    body: .body.data,
-    timestamp: (.timestamp.data / 1 | todate)
-  }]
-}' 
-}
-
-history_to_json() {
-  dunstctl history | jq -r \
-'.data[0][] | {
-    appname: .appname.data,
-    summary: .summary.data,
-    body: .body.data,
-    timestamp: (.timestamp.data / 1 | todate)
-  }' 
-}
-
-history_eww_content() {
-  notifications=$(dunstctl history | jq -r '.data[0][] |
-    "(box :orientation \"v\" :class \"notification-box\" :space-evenly \"false\" :onrightclick \"dunstctl history-rm \(.id.data)\" (label :class \"appname\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.appname.data)\") (label :class \"summary\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.summary.data)\") (label :class \"body\" :halign \"start\" :wrap \"true\" :show-truncated \"true\" :text \"\(.body.data)\"))"')
-
-  printf "(box :orientation \"v\" :spacing 10 :space-evenly \"false\" :class \"notification-container\" (button :onclick \"dunstctl history-clear\" :vexpand \"false\" :class \"delete-notifications\" (label :text \"borrar todo\")) $notifications)"
-}
-
-
 [ "$1" = "status" ] && status && exit
 [ "$1" = "unread" ] && unread && exit
+[ "$1" = "update" ] && update && exit
 [ "$1" = "icon" ] && icon && exit
-[ "$1" = "csv" ] && history_to_csv && exit
-[ "$1" = "json" ] && history_to_json && exit
-[ "$1" = "eww" ] && history_eww_content && exit
 [ "$1" = "--toggle-notifications" ] && toggle_notifications && exit
-[ "$1" = "--pop" ] && show_last && exit
-[ "$1" = "--history" ] && show_history && exit

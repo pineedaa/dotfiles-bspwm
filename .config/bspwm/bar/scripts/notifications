@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# Have to set this in order to work with every language
+LANG=en_US
+
+status() {
+  if (dunstctl is-paused | grep false) &> /dev/null; then
+    echo "notifications-on"
+  else
+    echo "notifications-off"
+  fi
+}
+
+update() {
+  dbus-send --session --dest=org.freedesktop.Notifications --type=method_call \
+--print-reply /org/freedesktop/Notifications org.freedesktop.Notifications.GetCapabilities
+}
+
+unread() {
+  dunstctl count waiting
+}
+
+toggle_notifications() {
+  dunstctl set-paused toggle
+}
+
+icon() {
+  unread_notifications=$(dunstctl count waiting)
+  if [ "$unread_notifications" -gt "0" ]; then
+    echo "󱥁"
+  else
+    echo "󰍡"
+  fi
+}
+
+[ "$1" = "status" ] && status && exit
+[ "$1" = "unread" ] && unread && exit
+[ "$1" = "update" ] && update && exit
+[ "$1" = "icon" ] && icon && exit
+[ "$1" = "--toggle-notifications" ] && toggle_notifications && exit

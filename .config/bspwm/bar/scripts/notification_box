@@ -8,8 +8,10 @@ history_eww_content() {
     :spacing 10 
     :space-evenly \"false\" 
     :class \"notification-container\"
+    :vexpand \"true\"
     (label 
-      :text \"No hay notificaciones\"))") 
+      :vexpand \"true\"
+      :text \"There are no notifications\"))") 
    echo $box
    return
   fi
@@ -20,6 +22,7 @@ history_eww_content() {
         :orientation \"v\" 
         :class \"notification-box\" 
         :space-evenly \"false\" 
+        :tooltip \"\(.body.data)\"
         (box
           :orientation \"h\"
           :space-evenly \"false\"
@@ -59,7 +62,7 @@ history_eww_content() {
         (box
           (label 
             :wrap \"true\"
-            :text \"borrar todo\"))) 
+            :text \"Delete all\"))) 
         $notifications)" | tr '\n' ' ') 
 
   echo $box

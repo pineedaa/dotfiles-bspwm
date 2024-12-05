@@ -94,7 +94,7 @@
 	(button
 		:class "notifications-icon ${notifications-status}"
     :onrightclick "scripts/notifications --toggle-notifications"
-    :onclick "${EWW_CMD} open --toggle notification-container"
+    :onclick "dunstctl close-all; ${EWW_CMD} open --toggle notification-container"
     notifications-icon)))
 
 (defpoll notifications-status :interval "1s" "scripts/notifications status")

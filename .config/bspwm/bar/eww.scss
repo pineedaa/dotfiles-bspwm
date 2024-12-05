@@ -310,6 +310,14 @@ calendar:indeterminate {
   background-color: $color1;
 }
 
+.delete-button {
+  color: $white;
+}
+
+.delete-button:hover {
+  color: $color1;
+}
+
 .appname {
   font-weight: bold;
   font-size: 18px;

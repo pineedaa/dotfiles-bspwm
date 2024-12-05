@@ -15,18 +15,25 @@ history_eww_content() {
   fi
 
   notifications=$(dunstctl history | jq -r '.data[0][] |
-    "(button 
-      :onrightclick \"dunstctl history-rm \(.id.data) ; scripts/notifications update\" 
+    " 
       (box 
         :orientation \"v\" 
         :class \"notification-box\" 
         :space-evenly \"false\" 
-        (label 
-          :class \"appname\" 
-          :halign \"start\" 
-          :truncate \"true\" 
-          :show-truncated \"true\" 
-          :text \"\(.appname.data)\") 
+        (box
+          :orientation \"h\"
+          :space-evenly \"false\"
+          (label 
+            :class \"appname\" 
+            :hexpand \"true\" 
+            :halign \"start\" 
+            :truncate \"true\" 
+            :show-truncated \"true\" 
+            :text \"\(.appname.data)\")
+          (button 
+            :onclick \"dunstctl history-rm \(.id.data) ; scripts/notifications update\"
+            :class \"delete-button\"
+            (label :text \"󰅙 \")))
         (label 
           :class \"summary\" 
           :halign \"start\" 
@@ -38,7 +45,7 @@ history_eww_content() {
           :halign \"start\" 
           :truncate \"true\" 
           :show-truncated \"true\" 
-          :text \"\(.body.data)\")))"')
+          :text \"\(.body.data)\"))"')
 
   box=$(echo "(box 
     :orientation \"v\"

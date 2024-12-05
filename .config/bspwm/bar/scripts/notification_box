@@ -45,7 +45,7 @@ history_eww_content() {
     :space-evenly \"false\" 
     :class \"notification-container\"
       (button 
-      :onclick \"dunstctl history-clear\" 
+      :onclick \"dunstctl history-clear && dunstify -a 'System' -t 1 'Notificaciones' 'Se han borrado todas las notificaciones'\" 
       :vexpand \"false\" 
       :class \"delete-notifications\" 
         (box

@@ -9,7 +9,7 @@
   all: unset;
 }
 
-@import 'colors.scss'
+@import 'colors.scss';
 
 $font: "JetBrainsMono Nerd Font";
 
@@ -35,13 +35,13 @@ $font: "JetBrainsMono Nerd Font";
   border-radius: 5px;
 }
 
-.workspace-focused {
+.workspace-occupied {
   font-size: 18px;
   color: $color6;
   margin: 0.35rem 0 0.35rem 0;
 }
 
-.workspace-occupied {
+.workspace-focused  {
   font-size: 18px;
   color: $white;
   margin: 0.35rem 0 0.35rem 0;
@@ -53,12 +53,25 @@ $font: "JetBrainsMono Nerd Font";
   margin: 0.35rem 0 0.35rem 0;
 }
 
+// Notifications
+.notifications-on {
+  color: $color5;
+  font-family: $font;
+  padding: 0 .3rem .3rem 0;
+}
+
+.notifications-off {
+  color: $color1;
+  font-family: $font;
+  padding: 0 .3rem .3rem 0;
+}
+
 // Launcher
 .launcher_icon {
   color: $color6;
   font-family: $font;
   font-size: 1.7em;
-  padding: 1rem 0 1rem 0;
+  padding: 1rem .5rem 1rem 0;
 }
 
 // Control Panel
@@ -104,19 +117,15 @@ $font: "JetBrainsMono Nerd Font";
 }
 
 .medium {
-  background-color: $color6;
-}
-
-.charge {
   background-color: $color4;
-}
-
-.critical {
-  background-color: $color1;
 }
 
 .charging {
   background-color: $color3;
+}
+
+.critical {
+  background-color: $color1;
 }
 
 .unknown {
@@ -277,4 +286,44 @@ calendar:indeterminate {
 
 .button-lock {
   color: $color5;
+}
+
+// Notifications
+.notification-container {
+  background-color: $background;
+  padding: .3rem;
+  border-radius: 10px;
+}
+
+.notification-box {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: $black;
+}
+
+.delete-notifications {
+  border-radius: 10px;
+  background-color: $color5;
+}
+
+.delete-notifications:hover {
+  background-color: $color1;
+}
+
+.delete-button {
+  color: $white;
+}
+
+.delete-button:hover {
+  color: $color1;
+}
+
+.appname {
+  font-weight: bold;
+  font-size: 18px;
+  color: $color3;
+}
+
+.summary {
+  font-weight: bold;
 }

@@ -30,6 +30,9 @@ PACKAGES=(
   "ttf-jetbrains-mono-nerd"
   "pamixer"
   "stow"
+  "less"
+  "jq"
+  "bc"
 )
 DOTFILES_REPO="https://github.com/pineedaa/dotfiles-bspwm"
 DOTFILES_INSTALL_DIR="$HOME/.dotfiles"

@@ -60,4 +60,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Env
 export SUDO_ASKPASS=~/.config/bspwm/scripts/askpass
 
+flowetch
+
 eval "$(zoxide init zsh)"
+alias cd="z"
+alias cls="clear && flowetch"
+alias ls="exa -l --git --color=always"
+alias la="exa -la --git --color=always"

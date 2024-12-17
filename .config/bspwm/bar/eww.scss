@@ -112,6 +112,10 @@ $font: "JetBrainsMono Nerd Font";
 }
 */
 
+.charging {
+  background-color: $color3;
+}
+
 .great {
   background-color: $color3;
 }
@@ -120,8 +124,8 @@ $font: "JetBrainsMono Nerd Font";
   background-color: $color4;
 }
 
-.charging {
-  background-color: $color3;
+.charge {
+  background-color: $color4;
 }
 
 .critical {
